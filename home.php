@@ -520,17 +520,6 @@
 		</ul>
 		<!-- END BHAVAS -->
 
-		<a href="index.html">
-		<span class="sr-only">Centro Latinoamericano de Estudios Védicos</span>
-		<img
-			class="h-10 w-auto my-12 mx-auto"
-			src="https://www.iniciadossky.com/assets/design2/icon-9fd5dfd8774cebef18ffb89ac5ca5553338227555753edb4670f561e6d7b2a38.png"
-			alt="Centro Latinoamericano de Estudios Védicos"
-		/>
-		</a>
-	</main>
-	<!-- END MAIN -->
-
 <?php
 	// Basically includes footer.php.
 	get_footer();
