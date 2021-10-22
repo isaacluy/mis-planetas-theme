@@ -186,3 +186,6 @@
 		</nav>
 	</header>
 	<!-- END HEADER -->
+
+<!-- MAIN -->
+	<main id="root" class="container mx-auto p-8 lg:w-11/12">
