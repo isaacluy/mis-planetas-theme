@@ -8,7 +8,6 @@
 
 ?>
 
-		<!-- GRAHAS.-->
 		<?php
 		// Adds the red h1 title.
 		include_file_with_variables(
@@ -23,10 +22,11 @@
 
 		<?php
 		$post_index = 1;
-		if ( have_posts() ) {
-			while ( have_posts() ) {
+		$grahas     = new WP_Query( 'category_name=grahas&posts_per_page=9' );
+		if ( $grahas->have_posts() ) {
+			while ( $grahas->have_posts() ) {
 				$post_mod = $post_index % 2;
-				the_post();
+				$grahas->the_post();
 				if ( 1 === $post_mod ) {
 					?>
 			<a href="<?php the_permalink(); ?>">
@@ -99,4 +99,3 @@
 			}
 		}
 		?>
-		<!-- END GRAHAS -->

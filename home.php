@@ -12,9 +12,11 @@
 
 <!-- MAIN -->
 	<main id="root" class="container mx-auto p-8 lg:w-11/12">
+	<!-- GRAHAS.-->
 	<?php
 	require get_template_directory() . '/inc/grahas-list.php';
 	?>
+	<!-- END GRAHAS -->
 
 		<!-- RISHIS 
 		<h1
