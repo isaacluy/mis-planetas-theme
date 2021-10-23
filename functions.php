@@ -129,7 +129,7 @@ function create_graha_post_type() {
 				'custom-fields',
 			),
 			'public'       => true,
-			'has_archive'  => false,
+			'has_archive'  => true,
 			'show_in_rest' => true, // To enable Gutenberg.
 		)
 	);
@@ -141,7 +141,6 @@ add_action( 'init', 'create_graha_post_type' );
  * Registers the Rishi Post Type
  * http://localhost:8888/wp-json/wp/v2/rishi/11 Published
  * http://localhost:8888/?post_type=rishi&p=14&preview=true Draft
- * http://localhost:8888/?post_type=rishi&p=15&preview=true Draft
  *
  * @since 1.0.0
  */
@@ -162,10 +161,40 @@ function create_rishi_post_type() {
 				'custom-fields',
 			),
 			'public'       => true,
-			'has_archive'  => false,
+			'has_archive'  => true,
 			'show_in_rest' => true, // To enable Gutenberg.
 		)
 	);
 }
 
 add_action( 'init', 'create_rishi_post_type' );
+
+/**
+ * Registers the Bhava Post Type
+ *
+ * @since 1.0.0
+ */
+function create_bhava_post_type() {
+	register_post_type(
+		'bhava',
+		array(
+			'labels'       => array(
+				'name'          => __( 'Bhavas' ),
+				'singular_name' => __( 'Bhava' ),
+			),
+			'supports'     => array(
+				'title',
+				'editor',
+				'excerpt',
+				'thumbnail',
+				'comments',
+				'custom-fields',
+			),
+			'public'       => true,
+			'has_archive'  => true,
+			'show_in_rest' => true, // To enable Gutenberg.
+		)
+	);
+}
+
+add_action( 'init', 'create_bhava_post_type' );
