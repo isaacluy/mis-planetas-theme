@@ -1,6 +1,6 @@
 <?php
 	/**
-	 * Home Page Template
+	 * Grahas Template
 	 *
 	 * @package MisPlanetasTheme
 	 * @since 1.0.0
@@ -10,7 +10,7 @@
 	get_header();
 ?>
 
-<h1> This is where the POST content goes!</p>
+<h1> This is where the GRAHA content goes!</p>
 
 <?php
 	// Basically includes footer.php.
