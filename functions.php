@@ -100,6 +100,7 @@ add_filter(
 /**
  * A way to include files and pass variables to it
  *
+ * @since 1.0.0
  * @param file_name $file_name is the name of the included file.
  * @param variables $variables array of variables.
  */
@@ -108,93 +109,66 @@ function include_file_with_variables( $file_name, $variables ) {
 }
 
 /**
- * Registers the Graha Post Type
+ * Registers a custom post type
+ *
+ * @since 1.0.0
+ * @param post_type $post_type a unique string that will represent the post type in the database.
+ * @param labels    $labels array of string labels for the custom post type.
+ */
+function register_post_type_helper( $post_type = null, $labels ) {
+	$public       = true;
+	$has_archive  = true;
+	$show_in_rest = true; // True to enable Gutenberg.
+	$supports     = array(
+		'title',
+		'editor',
+		'excerpt',
+		'thumbnail',
+		'comments',
+		'custom-fields',
+	);
+
+	register_post_type(
+		$post_type,
+		array(
+			'labels'       => $labels,
+			'supports'     => $supports,
+			'public'       => $public,
+			'has_archive'  => $has_archive,
+			'show_in_rest' => $show_in_rest,
+		)
+	);
+}
+
+/**
+ * Registers the graha, rishi and bhava post type
  *
  * @since 1.0.0
  */
-function create_graha_post_type() {
-	register_post_type(
+function create_custom_post_types() {
+	register_post_type_helper(
 		'graha',
 		array(
-			'labels'       => array(
-				'name'          => __( 'Grahas' ),
-				'singular_name' => __( 'Graha' ),
-			),
-			'supports'     => array(
-				'title',
-				'editor',
-				'excerpt',
-				'thumbnail',
-				'comments',
-				'custom-fields',
-			),
-			'public'       => true,
-			'has_archive'  => true,
-			'show_in_rest' => true, // To enable Gutenberg.
+			'name'          => __( 'Grahas' ),
+			'singular_name' => __( 'Graha' ),
 		)
 	);
-}
 
-add_action( 'init', 'create_graha_post_type' );
-
-/**
- * Registers the Rishi Post Type
- * http://localhost:8888/wp-json/wp/v2/rishi/11 Published
- * http://localhost:8888/?post_type=rishi&p=14&preview=true Draft
- *
- * @since 1.0.0
- */
-function create_rishi_post_type() {
-	register_post_type(
+	register_post_type_helper(
 		'rishi',
 		array(
-			'labels'       => array(
-				'name'          => __( 'Rishis' ),
-				'singular_name' => __( 'Rishi' ),
-			),
-			'supports'     => array(
-				'title',
-				'editor',
-				'excerpt',
-				'thumbnail',
-				'comments',
-				'custom-fields',
-			),
-			'public'       => true,
-			'has_archive'  => true,
-			'show_in_rest' => true, // To enable Gutenberg.
+			'name'          => __( 'Rishis' ),
+			'singular_name' => __( 'Rishi' ),
 		)
 	);
-}
 
-add_action( 'init', 'create_rishi_post_type' );
-
-/**
- * Registers the Bhava Post Type
- *
- * @since 1.0.0
- */
-function create_bhava_post_type() {
-	register_post_type(
+	register_post_type_helper(
 		'bhava',
 		array(
-			'labels'       => array(
-				'name'          => __( 'Bhavas' ),
-				'singular_name' => __( 'Bhava' ),
-			),
-			'supports'     => array(
-				'title',
-				'editor',
-				'excerpt',
-				'thumbnail',
-				'comments',
-				'custom-fields',
-			),
-			'public'       => true,
-			'has_archive'  => true,
-			'show_in_rest' => true, // To enable Gutenberg.
+			'name'          => __( 'Bhavas' ),
+			'singular_name' => __( 'Bhava' ),
 		)
 	);
 }
 
-add_action( 'init', 'create_bhava_post_type' );
+add_action( 'init', 'create_custom_post_types' );
