@@ -27,7 +27,7 @@
 		>
 	<?php
 	// TODO: I might need rewind_posts() below this line?
-	$rishis_or_bhavas = new WP_Query( 'category_name=' . $variables['id'] . '&posts_per_page=12' );
+	$rishis_or_bhavas = new WP_Query( 'post_type=' . $variables['post_type'] . '&posts_per_page=12' );
 	while ( $rishis_or_bhavas->have_posts() ) {
 		$rishis_or_bhavas->the_post();
 		?>

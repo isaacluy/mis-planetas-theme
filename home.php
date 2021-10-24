@@ -23,6 +23,7 @@
 			'id'               => 'rishis',
 			'nombre_sanscrito' => 'Rishis',
 			'nombre_comun'     => 'Constelaciones',
+			'post_type'        => 'rishi',
 		)
 	);
 	?>
@@ -36,6 +37,7 @@
 			'id'               => 'bhavas',
 			'nombre_sanscrito' => 'Bhavas',
 			'nombre_comun'     => 'Casas',
+			'post_type'        => 'bhava',
 		)
 	);
 	?>

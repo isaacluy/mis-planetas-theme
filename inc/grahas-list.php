@@ -22,7 +22,7 @@
 
 		<?php
 		$post_index = 1;
-		$grahas     = new WP_Query( 'category_name=grahas&posts_per_page=9' );
+		$grahas     = new WP_Query( 'post_type=graha&posts_per_page=9' );
 		if ( $grahas->have_posts() ) {
 			while ( $grahas->have_posts() ) {
 				$post_mod = $post_index % 2;
