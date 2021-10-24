@@ -9,10 +9,11 @@
 ?>
 
 		<?php
-		// Adds the red h1 title.
-		include_file_with_variables(
-			get_template_directory() . '/inc/list-or-grid-header.php',
-			$variables
+		// Adds the red h1 title before the Rishis or Bhavas grid.
+		get_template_part(
+			'template_parts/list-or-grid',
+			'header',
+			$args
 		);
 		?>
 		<ul
@@ -27,7 +28,7 @@
 		>
 	<?php
 	// TODO: I might need rewind_posts() below this line?
-	$rishis_or_bhavas = new WP_Query( 'post_type=' . $variables['post_type'] . '&posts_per_page=12' );
+	$rishis_or_bhavas = new WP_Query( 'post_type=' . $args['post_type'] . '&posts_per_page=12' );
 	while ( $rishis_or_bhavas->have_posts() ) {
 		$rishis_or_bhavas->the_post();
 		?>

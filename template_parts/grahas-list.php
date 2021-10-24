@@ -9,9 +9,10 @@
 ?>
 
 		<?php
-		// Adds the red h1 title.
-		include_file_with_variables(
-			get_template_directory() . '/inc/list-or-grid-header.php',
+		// Adds the red h1 title before the Grahas list.
+		get_template_part(
+			'template_parts/list-or-grid',
+			'header',
 			array(
 				'id'               => 'grahas',
 				'nombre_sanscrito' => 'Grahas',

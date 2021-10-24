@@ -8,7 +8,7 @@
 ?>
 
 <h1
-	id="<?php echo esc_attr( $variables['id'] ); ?>"
+	id="<?php echo esc_attr( $args['id'] ); ?>"
 	class="
 		text-red-900 text-2xl
 		mb-4
@@ -16,6 +16,6 @@
 		lg:text-left lg:ml-4 lg:text-3xl
 	"
 >
-	<?php echo esc_attr( $variables['nombre_sanscrito'] ); ?>
-	<span class="text-sm italic">(<?php echo esc_attr( $variables['nombre_comun'] ); ?>)</span>
+	<?php echo esc_attr( $args['nombre_sanscrito'] ); ?>
+	<span class="text-sm italic">(<?php echo esc_attr( $args['nombre_comun'] ); ?>)</span>
 </h1>

@@ -103,10 +103,11 @@ add_filter(
  * @since 1.0.0
  * @param file_name $file_name is the name of the included file.
  * @param variables $variables array of variables.
+ *
+ * function include_file_with_variables( $file_name, $variables ) {
+ * include $file_name;
+ * }
  */
-function include_file_with_variables( $file_name, $variables ) {
-	include $file_name;
-}
 
 /**
  * Registers a custom post type
@@ -115,7 +116,7 @@ function include_file_with_variables( $file_name, $variables ) {
  * @param post_type $post_type a unique string that will represent the post type in the database.
  * @param labels    $labels array of string labels for the custom post type.
  */
-function register_post_type_helper( $post_type = null, $labels ) {
+function register_custom_post_type( $post_type = null, $labels ) {
 	$public       = true;
 	$has_archive  = true;
 	$show_in_rest = true; // True to enable Gutenberg.
@@ -146,7 +147,7 @@ function register_post_type_helper( $post_type = null, $labels ) {
  * @since 1.0.0
  */
 function create_custom_post_types() {
-	register_post_type_helper(
+	register_custom_post_type(
 		'graha',
 		array(
 			'name'          => __( 'Grahas' ),
@@ -154,7 +155,7 @@ function create_custom_post_types() {
 		)
 	);
 
-	register_post_type_helper(
+	register_custom_post_type(
 		'rishi',
 		array(
 			'name'          => __( 'Rishis' ),
@@ -162,7 +163,7 @@ function create_custom_post_types() {
 		)
 	);
 
-	register_post_type_helper(
+	register_custom_post_type(
 		'bhava',
 		array(
 			'name'          => __( 'Bhavas' ),

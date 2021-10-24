@@ -11,14 +11,20 @@
 ?>
 	<!-- GRAHAS.-->
 	<?php
-	require get_template_directory() . '/inc/grahas-list.php';
+	// Adds the list of Grahas to the Home Page.
+	get_template_part(
+		'template_parts/grahas',
+		'list',
+	);
 	?>
 	<!-- END GRAHAS -->
 
 	<!-- RISHIS -->
 	<?php
-	include_file_with_variables(
-		get_template_directory() . '/inc/rishis-or-bhavas-grid.php',
+	// Adds the grid of Rishis to the Home Page.
+	get_template_part(
+		'template_parts/rishis-or-bhavas',
+		'grid',
 		array(
 			'id'               => 'rishis',
 			'nombre_sanscrito' => 'Rishis',
@@ -31,8 +37,10 @@
 
 	<!-- BHAVAS -->
 	<?php
-	include_file_with_variables(
-		get_template_directory() . '/inc/rishis-or-bhavas-grid.php',
+	// Adds the grid of Bhavas to the Home Page.
+	get_template_part(
+		'template_parts/rishis-or-bhavas',
+		'grid',
 		array(
 			'id'               => 'bhavas',
 			'nombre_sanscrito' => 'Bhavas',
