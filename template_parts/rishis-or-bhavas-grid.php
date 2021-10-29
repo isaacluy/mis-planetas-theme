@@ -31,6 +31,8 @@
 	$rishis_or_bhavas = new WP_Query( 'post_type=' . $args['post_type'] . '&posts_per_page=12' );
 	while ( $rishis_or_bhavas->have_posts() ) {
 		$rishis_or_bhavas->the_post();
+		$current_post_id           = get_the_ID();
+		$current_post_nombre_comun = get_post_meta( $current_post_id, 'nombreComun', true );
 		?>
 			<li class="relative">
 				<a href="<?php the_permalink(); ?>">
@@ -49,11 +51,17 @@
 					overflow-hidden
 					"
 				>
+				<?php
+				if ( has_post_thumbnail() ) {
+					?>
 					<img
-					src="https://www.thelist.com/img/gallery/heres-what-everyone-gets-wrong-about-sagittarius/intro-1624392883.jpg"
+					src="<?php echo esc_attr( wp_get_attachment_url( get_post_thumbnail_id( $current_post_id ) ) ); ?>"
 					alt="Sagitario"
 					class="object-cover pointer-events-none group-hover:opacity-75"
 					/>
+					<?php
+				}
+				?>
 					<button type="button" class="absolute inset-0 focus:outline-none">
 					<span class="sr-only">Ver detalles de <?php the_title(); ?></span>
 					</button>
@@ -78,7 +86,7 @@
 					pointer-events-none
 					"
 				>
-					<?php the_title(); ?>
+					<?php echo esc_attr( $current_post_nombre_comun ); ?>
 				</p>
 				</a>
 			</li>

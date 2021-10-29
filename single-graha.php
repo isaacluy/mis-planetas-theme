@@ -21,7 +21,6 @@ if ( have_posts() ) {
 		$current_post_id           = get_the_ID();
 		$current_post_title        = get_the_title( $current_post_id );
 		$current_post_nombre_comun = get_post_meta( $current_post_id, 'nombreComun', true );
-
 		?>
 			<!-- ENTRY HEADER -->
 			<section class="bg-white rounded-xl p-8 mb-4 shadow lg:flex lg:p-0">
