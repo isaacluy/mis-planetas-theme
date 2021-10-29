@@ -34,6 +34,9 @@
 					?>
 			<a href="<?php the_permalink(); ?>">
 				<figure class="bg-white rounded-xl p-8 mb-6 lg:flex lg:p-0">
+					<?php
+					if ( has_post_thumbnail() ) {
+						?>
 					<img
 					class="
 						w-32
@@ -42,11 +45,12 @@
 						mx-auto
 						lg:mx-0 lg:w-48 lg:h-auto lg:rounded-xl lg:rounded-r-none
 					"
-					src="http://cdn.sci-news.com/images/enlarge7/image_8862_1e-Jupiter-Europa.jpg"
+					src="<?php echo esc_attr( wp_get_attachment_url( get_post_thumbnail_id( $current_post_id ) ) ); ?>"
 					alt="<?php the_title(); ?>"
-					width="384"
-					height="512"
 					/>
+						<?php
+					}
+					?>
 					<div class="pt-6 lg:p-8 text-center lg:text-left space-y-4">
 					<figcaption>
 						<div class="text-cyan-600 font-medium">
@@ -67,13 +71,17 @@
 					?>
 			<a href="<?php the_permalink(); ?>">
 				<figure class="bg-white rounded-xl p-8 mb-6 lg:flex lg:p-0">
+					<?php
+					if ( has_post_thumbnail() ) {
+						?>
 					<img
 						class="w-32 h-32 rounded-full mx-auto lg:hidden"
-						src="https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/6/2021/01/25211738/PIA23791_fig2.jpg"
+						src="<?php echo esc_attr( wp_get_attachment_url( get_post_thumbnail_id( $current_post_id ) ) ); ?>"
 						alt="<?php the_title(); ?>"
-						width="384"
-						height="512"
 					/>
+						<?php
+					}
+					?>
 					<div class="w-full pt-6 lg:p-8 text-center lg:text-left space-y-4">
 						<figcaption>
 							<div class="text-cyan-600 font-medium">
@@ -87,13 +95,19 @@
 							</p>
 						</blockquote>
 					</div>
+					<?php
+					if ( has_post_thumbnail() ) {
+						?>
 					<img
 						class="hidden w-48 h-auto rounded-xl rounded-l-none lg:block"
-						src="https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/6/2021/01/25211738/PIA23791_fig2.jpg"
+						src="<?php echo esc_attr( wp_get_attachment_url( get_post_thumbnail_id( $current_post_id ) ) ); ?>"
 						alt="Shukla - Venus"
 						width="384"
 						height="512"
 					/>
+						<?php
+					}
+					?>
 				</figure>
 			</a>
 						<?php
