@@ -1,3 +1,12 @@
+<?php
+/**
+ * Website header
+ *
+ * @package MisPlanetasTheme
+ * @since 1.0.0
+ */
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>

@@ -1,4 +1,13 @@
-		<a href="/">
+<?php
+/**
+ * Website footer
+ *
+ * @package MisPlanetasTheme
+ * @since 1.0.0
+ */
+
+?>
+		<a href="<?php echo esc_attr( get_home_url() ); ?>">
 		<span class="sr-only">Centro Latinoamericano de Estudios Védicos</span>
 		<img
 			class="h-10 w-auto my-12 mx-auto"

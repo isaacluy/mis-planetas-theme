@@ -1,8 +1,9 @@
 <?php
 /**
- * This is the main menu at the top of every page
+ * Main menu at the top of every page
  *
  * @package MisPlanetasTheme
+ * @since 1.0.0
  */
 
 $grahas_text = 'Grahas';
@@ -21,7 +22,7 @@ $bhavas_text = 'Bhavas';
 						lg:block
 					"
 				>
-					<a class="float-left -mt-2" href="/">
+					<a class="float-left -mt-2" href="<?php echo esc_attr( get_home_url() ); ?>">
 						<span class="sr-only">
 							Centro Latinoamericano de Estudios Védicos
 						</span>
@@ -100,7 +101,7 @@ $bhavas_text = 'Bhavas';
 
 				<!-- MOBILE MENU -->
 				<div class="pt-8 pb-4 flex flex-wrap justify-center lg:hidden">
-					<a href="/">
+					<a href="<?php echo esc_attr( get_home_url() ); ?>">
 						<span class="sr-only">
 							Centro Latinoamericano de Estudios Védicos
 						</span>
