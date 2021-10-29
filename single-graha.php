@@ -37,7 +37,7 @@ if ( have_posts() ) {
 						lg:mx-0 lg:h-auto lg:rounded-xl lg:rounded-r-none
 						shadow
 					"
-					src="<?php echo esc_attr( wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) ) ); ?>"
+					src="<?php echo esc_attr( wp_get_attachment_url( get_post_thumbnail_id( $current_post_id ) ) ); ?>"
 					alt="<?php echo esc_attr( $current_post_title ); ?> | <?php echo esc_attr( $current_post_nombre_comun ); ?>"
 				/>
 				<?php
@@ -57,7 +57,6 @@ if ( have_posts() ) {
 			</section>
 			<!-- END ENTRY HEADER -->
 
-			<!-- FAVORABLE VS DESFAVORABLE -->
 				<?php the_content(); ?>
 		<?php
 	}
