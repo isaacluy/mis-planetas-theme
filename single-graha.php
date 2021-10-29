@@ -20,7 +20,7 @@ if ( have_posts() ) {
 		the_post();
 		$current_post_id           = get_the_ID();
 		$current_post_title        = get_the_title( $current_post_id );
-		$current_post_nombre_comun = esc_attr( get_post_meta( $current_post_id, 'nombreComun', true ) );
+		$current_post_nombre_comun = get_post_meta( $current_post_id, 'nombreComun', true );
 
 		?>
 			<!-- ENTRY HEADER -->
