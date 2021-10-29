@@ -28,6 +28,8 @@
 			while ( $grahas->have_posts() ) {
 				$post_mod = $post_index % 2;
 				$grahas->the_post();
+				$current_post_id           = get_the_ID();
+				$current_post_nombre_comun = get_post_meta( $current_post_id, 'nombreComun', true );
 				if ( 1 === $post_mod ) {
 					?>
 			<a href="<?php the_permalink(); ?>">
@@ -49,7 +51,7 @@
 					<figcaption>
 						<div class="text-cyan-600 font-medium">
 						<?php the_title(); ?>
-						<span class="text-sm font-normal italic"> (<?php the_title(); ?>) </span>
+						<span class="text-sm font-normal italic"> (<?php echo esc_attr( $current_post_nombre_comun ); ?>) </span>
 						</div>
 					</figcaption>
 					<blockquote>
@@ -76,7 +78,7 @@
 						<figcaption>
 							<div class="text-cyan-600 font-medium">
 						<?php the_title(); ?>
-								<span class="text-sm font-normal italic"> (<?php the_title(); ?>) </span>
+								<span class="text-sm font-normal italic"> (<?php echo esc_attr( $current_post_nombre_comun ); ?>) </span>
 							</div>
 						</figcaption>
 						<blockquote>
