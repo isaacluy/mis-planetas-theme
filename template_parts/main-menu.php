@@ -74,7 +74,7 @@ $bhavas_text = 'Bhavas';
 						</a> -->
 					</div>
 					<div class="float-right">
-						<form action="/search/results">
+						<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_attr( get_home_url() ); ?>">
 							<div class="relative rounded-md shadow-sm">
 								<div class="absolute inset-y-0 pl-1 pt-1 left-0 items-center pointer-events-none">
 										<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
@@ -82,9 +82,9 @@ $bhavas_text = 'Bhavas';
 										</svg>
 								</div>
 								<input
-									type="search"
-									name="q"
-									id="search"
+									type="text"
+									name="s"
+									id="s"
 									class="float-left w-72 pl-8 border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500">
 								<!--
 								<button
@@ -156,7 +156,7 @@ $bhavas_text = 'Bhavas';
 				<!-- END MOBILE MENU -->
 				<!-- MOBILE SEARCH -->
 				<div class="py-4 flex flex-wrap justify-center lg:hidden">
-					<form action="{{ url("search/results") }}">
+					<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_attr( get_home_url() ); ?>">
 						<div class="relative rounded-md shadow-sm">
 							<div class="absolute inset-y-0 pl-1 pt-1 left-0 items-center pointer-events-none">
 								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
@@ -164,11 +164,12 @@ $bhavas_text = 'Bhavas';
 								</svg>
 							</div>
 							<input
-								type="search"
-								name="q"
-								id="search"
+								type="text"
+								name="s"
+								id="s"
 								class="block w-full pl-8 border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500">
 							<button
+								id="searchsubmit"
 								class="block w-24 p-1 mt-1 mx-auto rounded-md text-sm bg-yellow-400 hover:bg-yellow-200"
 								type="submit"
 							>
