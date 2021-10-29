@@ -54,7 +54,7 @@
 					</figcaption>
 					<blockquote>
 						<p>
-					<?php the_content(); ?>
+					<?php the_excerpt(); ?>
 						</p>
 					</blockquote>
 					</div>
@@ -81,7 +81,7 @@
 						</figcaption>
 						<blockquote>
 							<p>
-						<?php the_content(); ?>
+						<?php the_excerpt(); ?>
 							</p>
 						</blockquote>
 					</div>
