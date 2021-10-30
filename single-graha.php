@@ -56,8 +56,11 @@ if ( have_posts() ) {
 			</section>
 			<!-- END ENTRY HEADER -->
 
-				<?php the_content(); ?>
-		<?php
+			<?php
+			the_content();
+			if ( comments_open() || get_comments_number() ) {
+				comments_template();
+			}
 	}
 }
 ?>
