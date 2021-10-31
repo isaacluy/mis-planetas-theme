@@ -173,3 +173,37 @@ function create_custom_post_types() {
 }
 
 add_action( 'init', 'create_custom_post_types' );
+
+/**
+ * Outputs the HTML for a saved comment in the Comments section of a post or page.
+ *
+ * @since 1.0.0
+ * @param comment $comment The WordPress comment object.
+ * @param args    $args The arguments passed into the callback.
+ * @param depth   $depth The depth of the comment in the threads.
+ */
+function my_comments_callback( $comment, $args, $depth ) {
+	$margin_left = $depth < 2 ? '' : 'ml-' . ( 10 * ( $depth - 1 ) );
+	?>
+	<li <?php comment_class( $margin_left ); ?> id="li-comment-<?php comment_ID(); ?>">
+		<article id="comment-<?php comment_ID(); ?>" class="comment">
+			<div class="comment-content"><?php comment_text(); ?></div>
+			<p><?php comment_author(); ?></p>
+			<div class="reply">
+				<?php
+				comment_reply_link(
+					array_merge(
+						$args,
+						array(
+							'reply_text' => __( 'Responder <span>&darr;</span>', 'misplanetastheme' ),
+							'depth'      => $depth,
+							'max_depth'  => $args['max_depth'],
+						)
+					)
+				);
+				?>
+			</div>
+		</article>
+	</li>
+	<?php
+}

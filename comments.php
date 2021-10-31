@@ -15,53 +15,63 @@ if ( post_password_required() ) {
 	return;
 }
 
-$twenty_twenty_one_comment_count = get_comments_number();
+$comment_count = get_comments_number();
 ?>
 
-<div id="comments" class="comments-area default-max-width <?php echo get_option( 'show_avatars' ) ? 'show-avatars' : ''; ?>">
+<!-- COMMENTS -->
+<section
+	id="comentarios"
+	class="p-8 my-4 <?php echo get_option( 'show_avatars' ) ? 'show-avatars' : ''; ?>"
+>
+	<h3 class="mb-2 pt-4 text-red-900 border-t-2 border-red-700 border-dotted text-xl lg:text-2xl">
+		<a href="#comentarios">Comentarios</a>
+	</h3>
 
 	<?php
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
-			<?php if ( '1' === $twenty_twenty_one_comment_count ) : ?>
-				<?php esc_html_e( '1 comment', 'twentytwentyone' ); ?>
-			<?php else : ?>
+		<h4 class="mb-6 comments-title">
+			<?php if ( '1' === $comment_count ) { ?>
+				<?php esc_html_e( '1 comentario', 'misplanetastheme' ); ?>
+			<?php } else { ?>
 				<?php
 				printf(
 					/* translators: %s: Comment count number. */
-					esc_html( _nx( '%s comment', '%s comments', $twenty_twenty_one_comment_count, 'Comments title', 'twentytwentyone' ) ),
-					esc_html( number_format_i18n( $twenty_twenty_one_comment_count ) )
+					esc_html( _nx( '%s comentario', '%s comentarios', $comment_count, 'Titulo del comentario', 'misplanetastheme' ) ),
+					esc_html( number_format_i18n( $comment_count ) )
 				);
 				?>
-			<?php endif; ?>
-		</h2><!-- .comments-title -->
+			<?php } ?>
+		</h4>
 
-		<ol class="comment-list">
+		<ol class="comment-list space-y-6 mb-6">
 			<?php
 			wp_list_comments(
 				array(
-					'avatar_size' => 60,
-					'style'       => 'ol',
-					'short_ping'  => true,
+					// 'avatar_size'       => 60,
+					'style'             => 'ol',
+					'short_ping'        => true,
+					'reverse_top_level' => true,
+					'reverse_children'  => true,
+					'callback'          => 'my_comments_callback',
 				)
 			);
 			?>
-		</ol><!-- .comment-list -->
+		</ol>
 
 		<?php
 		the_comments_pagination(
 			array(
-				'before_page_number' => esc_html__( 'Page', 'twentytwentyone' ) . ' ',
+				'before_page_number' => esc_html__( 'Página', 'misplanetastheme' ) . ' ',
 				'mid_size'           => 0,
-				'prev_text'          => 'Older comments',
-				'next_text'          => 'Newer comments',
+				'prev_text'          => '<span>&larr;</span>',
+				'next_text'          => '<span>&rarr;</span>',
 			),
 		);
 		?>
 
 		<?php if ( ! comments_open() ) : ?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'twentytwentyone' ); ?></p>
+			<p class="no-comments bold italic"><?php esc_html_e( 'Los comentarios están cerrados.', 'misplanetastheme' ); ?></p>
 		<?php endif; ?>
 	<?php endif; ?>
 
@@ -69,11 +79,14 @@ $twenty_twenty_one_comment_count = get_comments_number();
 	comment_form(
 		array(
 			'logged_in_as'       => null,
-			'title_reply'        => esc_html__( 'Leave a comment', 'twentytwentyone' ),
-			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
-			'title_reply_after'  => '</h2>',
+			'title_reply'        => esc_html__( 'Escribe un comentario:', 'misplanetastheme' ),
+			'title_reply_before' => '<h4 id="reply-title" class="comment-reply-title">',
+			'title_reply_after'  => '</h4>',
+			'label_submit'       => esc_html__( 'Enviar comentario', 'misplanetastheme' ),
+			'comment_field'      => '<textarea id="comment" class="w-full my-4" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>',
 		)
 	);
 	?>
 
-</div><!-- #comments -->
+</section>
+<!-- END COMMENTS -->
