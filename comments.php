@@ -23,14 +23,14 @@ $comment_count = get_comments_number();
 	id="comentarios"
 	class="p-8 my-4 <?php echo get_option( 'show_avatars' ) ? 'show-avatars' : ''; ?>"
 >
-	<h3 class="mb-2 pt-4 text-red-900 border-t-2 border-red-700 border-dotted text-xl lg:text-2xl">
+	<h3 class="mb-2 pt-4 text-red-900 border-t-2 border-red-900 border-solid text-xl lg:text-2xl">
 		<a href="#comentarios">Comentarios</a>
 	</h3>
 
 	<?php
 	if ( have_comments() ) :
 		?>
-		<h4 class="mb-6 comments-title">
+		<h4 class="mb-6 italic text-gray-500 comments-title">
 			<?php if ( '1' === $comment_count ) { ?>
 				<?php esc_html_e( '1 comentario', 'misplanetastheme' ); ?>
 			<?php } else { ?>
@@ -44,11 +44,10 @@ $comment_count = get_comments_number();
 			<?php } ?>
 		</h4>
 
-		<ol class="comment-list space-y-6 mb-6">
+		<ol class="comment-list space-y-2 mb-6">
 			<?php
 			wp_list_comments(
 				array(
-					// 'avatar_size'       => 60,
 					'style'             => 'ol',
 					'short_ping'        => true,
 					'reverse_top_level' => true,
@@ -78,12 +77,13 @@ $comment_count = get_comments_number();
 	<?php
 	comment_form(
 		array(
-			'logged_in_as'       => null,
-			'title_reply'        => esc_html__( 'Escribe un comentario:', 'misplanetastheme' ),
-			'title_reply_before' => '<h4 id="reply-title" class="comment-reply-title">',
-			'title_reply_after'  => '</h4>',
-			'label_submit'       => esc_html__( 'Enviar comentario', 'misplanetastheme' ),
+			'class_submit'       => 'bg-red-900',
 			'comment_field'      => '<textarea id="comment" class="w-full my-4" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>',
+			'label_submit'       => esc_html__( 'Enviar comentario', 'misplanetastheme' ),
+			'logged_in_as'       => null,
+			'title_reply_after'  => '</h4>',
+			'title_reply_before' => '<h4 id="reply-title" class="comment-reply-title">',
+			'title_reply'        => esc_html__( 'Escribe un comentario:', 'misplanetastheme' ),
 		)
 	);
 	?>

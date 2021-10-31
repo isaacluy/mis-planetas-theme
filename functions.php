@@ -183,9 +183,10 @@ add_action( 'init', 'create_custom_post_types' );
  * @param depth   $depth The depth of the comment in the threads.
  */
 function my_comments_callback( $comment, $args, $depth ) {
-	$margin_left = $depth < 2 ? '' : 'ml-' . ( 10 * ( $depth - 1 ) );
+	$margin_left       = $depth < 2 ? '' : 'lg:ml-' . ( 10 * ( $depth - 1 ) );
+	$background_styles = 'p-8 bg-white rounded-xl shadow';
 	?>
-	<li <?php comment_class( $margin_left ); ?> id="li-comment-<?php comment_ID(); ?>">
+	<li <?php comment_class( $margin_left . ' ' . $background_styles ); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment">
 			<div class="comment-content"><?php comment_text(); ?></div>
 			<p><?php comment_author(); ?></p>
@@ -198,6 +199,7 @@ function my_comments_callback( $comment, $args, $depth ) {
 							'reply_text' => __( 'Responder <span>&darr;</span>', 'misplanetastheme' ),
 							'depth'      => $depth,
 							'max_depth'  => $args['max_depth'],
+							'login_text' => 'Registrate para responder',
 						)
 					)
 				);
