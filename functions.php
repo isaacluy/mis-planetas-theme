@@ -209,3 +209,48 @@ function my_comments_callback( $comment, $args, $depth ) {
 	</li>
 	<?php
 }
+
+/**
+ * Sets up a blocks template for post type 'post'
+ *
+ * @since 1.0.0
+ * @param args      $args The arguments passed to register_post_type_args.
+ * @param post_type $post_type A string representing the post type.
+ */
+function mytheme_block_templates( $args, $post_type ) {
+
+	// Only add template to 'post' post type.
+	// Change for your post type: eg 'page', 'event', 'product'.
+	if ( 'post' === $post_type ) {
+
+		// Optionally lock templates from further changes.
+		// Change to 'insert' to allow adding other blocks, but lock defined blocks.
+		$args['template_lock'] = 'all';
+
+		// Set the template.
+		$args['template'] = array(
+			array(
+				// Example of including a core image block
+				// Optional alignment setting.
+				'core/image',
+				array(
+					'align' => 'left',
+				),
+			),
+			array(
+				// Example of including a core paragraph block
+				// Optional alignment placeholder setting.
+				'core/paragraph',
+				array(
+					'placeholder' => 'The only thing you can add',
+					'align'       => 'right',
+				),
+			),
+		);
+	}
+
+	return $args;
+
+}
+// Hook function into post type arguments filter.
+add_filter( 'register_post_type_args', 'mytheme_block_templates', 20, 2 );
