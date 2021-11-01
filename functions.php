@@ -230,20 +230,55 @@ function mytheme_block_templates( $args, $post_type ) {
 		// Set the template.
 		$args['template'] = array(
 			array(
-				// Example of including a core image block
-				// Optional alignment setting.
-				'core/image',
+				'core/columns',
+				array( 'className' => 'mb-4 lg:flex lg:p-0 lg:space-x-4' ),
 				array(
-					'align' => 'left',
-				),
-			),
-			array(
-				// Example of including a core paragraph block
-				// Optional alignment placeholder setting.
-				'core/paragraph',
-				array(
-					'placeholder' => 'The only thing you can add',
-					'align'       => 'right',
+					array(
+						'core/column',
+						array(
+							'className' => 'w-full h-auto p-8 mb-4 bg-white rounded-xl space-y-4 shadow lg:w-1/2 lg:mb-0',
+							'anchor'    => 'favorable',
+						),
+						array(
+							array(
+								'core/heading',
+								array(
+									'placeholder' => 'Planeta Favorable',
+									'content'     => 'Planeta Favorable',
+									'anchor'      => 'favorable',
+								),
+							),
+							array(
+								'core/paragraph',
+								array(
+									'placeholder' => 'Texto que habla sobre cuando el planeta está favorable...',
+								),
+							),
+						),
+					),
+					array(
+						'core/column',
+						array(
+							'className' => 'w-full h-auto p-8 mb-4 bg-white rounded-xl space-y-4 shadow lg:w-1/2 lg:mb-0',
+							'anchor'    => 'desfavorable',
+						),
+						array(
+							array(
+								'core/heading',
+								array(
+									'placeholder' => 'Planeta Desfavorable',
+									'content'     => 'Planeta Desfavorable',
+									'anchor'      => 'desfavorable',
+								),
+							),
+							array(
+								'core/paragraph',
+								array(
+									'placeholder' => 'Texto que habla sobre cuando el planeta está desfavorable...',
+								),
+							),
+						),
+					),
 				),
 			),
 		);
