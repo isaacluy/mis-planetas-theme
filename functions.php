@@ -115,8 +115,9 @@ add_filter(
  * @since 1.0.0
  * @param post_type $post_type a unique string that will represent the post type in the database.
  * @param labels    $labels array of string labels for the custom post type.
+ * @param menu_icon $menu_icon (optional) string from https://developer.wordpress.org/resource/dashicons/ .
  */
-function register_custom_post_type( $post_type = null, $labels ) {
+function register_custom_post_type( $post_type = null, $labels, $menu_icon = null ) {
 	$public       = true;
 	$has_archive  = true;
 	$show_in_rest = true; // True to enable Gutenberg.
@@ -137,6 +138,7 @@ function register_custom_post_type( $post_type = null, $labels ) {
 			'public'       => $public,
 			'has_archive'  => $has_archive,
 			'show_in_rest' => $show_in_rest,
+			'menu_icon'    => $menu_icon ? $menu_icon : 'dashicons-admin-post',
 		)
 	);
 }
@@ -152,7 +154,8 @@ function create_custom_post_types() {
 		array(
 			'name'          => __( 'Grahas' ),
 			'singular_name' => __( 'Graha' ),
-		)
+		),
+		'dashicons-admin-site'
 	);
 
 	register_custom_post_type(
@@ -160,7 +163,8 @@ function create_custom_post_types() {
 		array(
 			'name'          => __( 'Rishis' ),
 			'singular_name' => __( 'Rishi' ),
-		)
+		),
+		'dashicons-star-filled'
 	);
 
 	register_custom_post_type(
@@ -168,7 +172,8 @@ function create_custom_post_types() {
 		array(
 			'name'          => __( 'Bhavas' ),
 			'singular_name' => __( 'Bhava' ),
-		)
+		),
+		'dashicons-admin-home'
 	);
 }
 
