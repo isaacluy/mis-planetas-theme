@@ -216,13 +216,155 @@ function get_comments_html( $comment, $args, $depth ) {
 }
 
 /**
+ * This returns the array representation of an h2 heading in mis-planetas-theme.
+ *
+ * @since 1.0.0
+ * @param anchor      $anchor A string representing the anchor(#) link for this heading.
+ * @param content     $content A string that will be displayed as a heading.
+ * @param placeholder $placeholder A string that will be displayed as a placeholder hint.
+ */
+function get_theme_h2_heading( $anchor = '', $content = '', $placeholder = 'Aquí va el título H2' ) {
+	// There's a level attribute that can be a number between 1-6 to define h1, h2, h3, etc... May be useful in the future.
+	return array(
+		'core/heading',
+		array(
+			'anchor'      => $anchor,
+			'className'   => 'mb-4 text-red-900 text-xl lg:text-left lg:text-2xl',
+			'content'     => $content,
+			'placeholder' => $placeholder,
+		),
+	);
+}
+
+/**
+ * This returns the array representation of a paragraph in mis-planetas-theme.
+ *
+ * @since 1.0.0
+ * @param placeholder $placeholder A string that will be displayed as a placeholder hint.
+ */
+function get_theme_paragraph( $placeholder = 'Aquí va el contenido' ) {
+	return array(
+		'core/paragraph',
+		array(
+			'placeholder' => $placeholder,
+		),
+	);
+}
+
+/**
+ * This returns the array representation of a custom HTML in mis-planetas-theme.
+ *
+ * @since 1.0.0
+ * @param html $html A string represents the custom HTML that you want to display on a block.
+ */
+function get_theme_html( $html = '<div>Pega aquí tu código HTML</div>' ) {
+	return array(
+		'core/html',
+		array(
+			'content' => $html,
+		),
+	);
+}
+
+/**
+ * This returns the array representation of a column in mis-planetas-theme.
+ *
+ * @since 1.0.0
+ * @param anchor  $anchor A string representing the anchor(#) link for this column.
+ * @param content $content An array of array representations of blocks.
+ * @param full    $full A boolean flag for whether to use the full column class or the half column class.
+ */
+function get_theme_column( $anchor = null, $content = null, $full = false ) {
+	// Just in case! TODO: Remove these comment lines.
+	// ORIGINAL FULL CSS: 'p-8 mb-4 bg-white rounded-xl shadow'.
+	$class_name = $full ? 'w-full h-auto p-8 mb-4 bg-white rounded-xl shadow' : 'w-full h-auto p-8 mb-4 bg-white rounded-xl space-y-4 shadow lg:w-1/2 lg:mb-0';
+
+	return array(
+		'core/column',
+		array(
+			'className' => $class_name,
+			'anchor'    => $anchor,
+		),
+		$content,
+	);
+}
+
+/**
+ * This returns the array representation of columns in mis-planetas-theme.
+ *
+ * @since 1.0.0
+ * @param content $content An array of array representations of blocks.
+ */
+function get_theme_columns( $content = null ) {
+	return array(
+		'core/columns',
+		array(
+			'className' => 'mb-4 lg:flex lg:p-0 lg:space-x-4',
+		),
+		$content,
+	);
+}
+
+/**
+ * Returns an array based blocks template for the Graha post type 'graha'
+ *
+ * @since 1.0.0
+ */
+function grahas_block_template() {
+		// Otros section custom HTML template.
+		$otros_html = '<div class="flex flew-row flex-wrap gap-3 justify-around lg:gap-4">
+	<div id="punto-cardinal" class="w-full h-auto p-4 bg-red-50 rounded-xl text-center lg:w-64">
+		<h3 class="text-red-900 text-lg lg:text-xl lg:mb-2">
+			<a href="#punto-cardinal">Punto Cardinal</a>
+		</h3>
+		<ul>
+			<li>Aquí va el punto cardinal regido por el planeta</li>
+		</ul>
+	</div>
+</div>';
+
+	return array(
+		get_theme_columns(
+			array(
+				get_theme_column(
+					'favorable',
+					array(
+						get_theme_h2_heading( 'favorable', 'Planeta Favorable!', 'Planeta Favorable!' ),
+						get_theme_paragraph( 'Texto que habla sobre cuando el planeta está favorable!...' ),
+					),
+				),
+				get_theme_column(
+					'desfavorable',
+					array(
+						get_theme_h2_heading( 'desfavorable', 'Planeta Desfavorable!', 'Planeta Desfavorable!' ),
+						get_theme_paragraph( 'Texto que habla sobre cuando el planeta está desfavorable!...' ),
+					)
+				),
+			)
+		),
+		get_theme_columns(
+			array(
+				get_theme_column(
+					'otros',
+					array(
+						get_theme_h2_heading( 'otros', 'Otros datos sobre Planeta', 'Otros datos sobre Planeta' ),
+						get_theme_html( $otros_html ),
+					),
+					true
+				),
+			),
+		),
+	);
+}
+
+/**
  * Sets up a blocks template for post type 'post'
  *
  * @since 1.0.0
  * @param args      $args The arguments passed to register_post_type_args.
  * @param post_type $post_type A string representing the post type.
  */
-function mytheme_block_templates( $args, $post_type ) {
+function mis_planetas_theme_block_templates( $args, $post_type ) {
 
 	// Only add template to 'post' post type.
 	// Change for your post type: eg 'page', 'event', 'product'.
@@ -232,65 +374,12 @@ function mytheme_block_templates( $args, $post_type ) {
 		// Change to 'insert' to allow adding other blocks, but lock defined blocks.
 		$args['template_lock'] = 'all';
 
-		// Set the template.
-		$args['template'] = array(
-			array(
-				'core/columns',
-				array( 'className' => 'mb-4 lg:flex lg:p-0 lg:space-x-4' ),
-				array(
-					array(
-						'core/column',
-						array(
-							'className' => 'w-full h-auto p-8 mb-4 bg-white rounded-xl space-y-4 shadow lg:w-1/2 lg:mb-0',
-							'anchor'    => 'favorable',
-						),
-						array(
-							array(
-								'core/heading',
-								array(
-									'placeholder' => 'Planeta Favorable',
-									'content'     => 'Planeta Favorable',
-									'anchor'      => 'favorable',
-								),
-							),
-							array(
-								'core/paragraph',
-								array(
-									'placeholder' => 'Texto que habla sobre cuando el planeta está favorable...',
-								),
-							),
-						),
-					),
-					array(
-						'core/column',
-						array(
-							'className' => 'w-full h-auto p-8 mb-4 bg-white rounded-xl space-y-4 shadow lg:w-1/2 lg:mb-0',
-							'anchor'    => 'desfavorable',
-						),
-						array(
-							array(
-								'core/heading',
-								array(
-									'placeholder' => 'Planeta Desfavorable',
-									'content'     => 'Planeta Desfavorable',
-									'anchor'      => 'desfavorable',
-								),
-							),
-							array(
-								'core/paragraph',
-								array(
-									'placeholder' => 'Texto que habla sobre cuando el planeta está desfavorable...',
-								),
-							),
-						),
-					),
-				),
-			),
-		);
+		// Set the grahas template.
+		$args['template'] = grahas_block_template();
 	}
 
 	return $args;
 
 }
-// Hook function into post type arguments filter.
-add_filter( 'register_post_type_args', 'mytheme_block_templates', 20, 2 );
+// Hook function into post type arguments filter. 20 = priority. 2 = number of args.
+add_filter( 'register_post_type_args', 'mis_planetas_theme_block_templates', 20, 2 );
