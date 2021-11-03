@@ -52,7 +52,7 @@ $comment_count = get_comments_number();
 					'short_ping'        => true,
 					'reverse_top_level' => true,
 					'reverse_children'  => true,
-					'callback'          => 'my_comments_callback',
+					'callback'          => 'get_comments_html',
 				)
 			);
 			?>

@@ -90,7 +90,7 @@ add_filter(
 	'the_title',
 	function( $title ) {
 		if ( ! is_admin() && empty( $title ) ) {
-			$title = __( '(No title)', 'mis-planetas' );
+			$title = __( '(No title)', 'mis-planetas-theme' );
 		}
 
 		return $title;
@@ -144,7 +144,7 @@ function register_custom_post_type( $post_type = null, $labels, $menu_icon = nul
 }
 
 /**
- * Registers the graha, rishi and bhava post type
+ * Registers the graha, rishi and bhava post types
  *
  * @since 1.0.0
  */
@@ -187,7 +187,7 @@ add_action( 'init', 'create_custom_post_types' );
  * @param args    $args The arguments passed into the callback.
  * @param depth   $depth The depth of the comment in the threads.
  */
-function my_comments_callback( $comment, $args, $depth ) {
+function get_comments_html( $comment, $args, $depth ) {
 	$margin_left       = $depth < 2 ? '' : 'lg:ml-' . ( 10 * ( $depth - 1 ) );
 	$background_styles = 'p-8 bg-white rounded-xl shadow';
 	?>
