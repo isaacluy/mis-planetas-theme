@@ -336,7 +336,7 @@ function get_theme_columns( $content = null, $class_name = null ) {
  * @since 1.0.0
  */
 function grahas_block_template() {
-		// Otros section custom HTML template.
+		// Custom HTML starter template for the "Otros datos sobre ..." section.
 		$otros_html = '<div class="flex flew-row flex-wrap gap-3 justify-around lg:gap-4">
 	<div id="punto-cardinal" class="w-full h-auto p-4 bg-red-50 rounded-xl text-center lg:w-64">
 		<h3 class="text-red-900 text-lg lg:text-xl lg:mb-2">
@@ -349,24 +349,64 @@ function grahas_block_template() {
 </div>';
 
 	return array(
+		// "FAVORABLE VS DESFAVORABLE" COLUMNS.
 		get_theme_columns(
 			array(
 				get_theme_column(
 					'favorable',
 					array(
-						get_theme_h2_heading( 'favorable', 'Planeta Favorable!', 'Planeta Favorable!' ),
+						get_theme_h2_heading( 'favorable', 'Planeta Favorable', 'Planeta Favorable' ),
 						get_theme_paragraph( 'Texto que habla sobre cuando el planeta está favorable!...' ),
 					),
 				),
 				get_theme_column(
 					'desfavorable',
 					array(
-						get_theme_h2_heading( 'desfavorable', 'Planeta Desfavorable!', 'Planeta Desfavorable!' ),
+						get_theme_h2_heading( 'desfavorable', 'Planeta Desfavorable', 'Planeta Desfavorable' ),
 						get_theme_paragraph( 'Texto que habla sobre cuando el planeta está desfavorable!...' ),
 					)
 				),
 			)
 		),
+		// "FÍSICO Y SALUD + PSICOLOGÍA" COLUMNS.
+		get_theme_columns(
+			array(
+				get_theme_column(
+					'fisico-salud',
+					array(
+						get_theme_h2_heading( 'fisico-salud', 'Físico y Salud' ),
+						get_theme_paragraph( 'Texto que habla sobre cómo el planeta afecta en la salud de una persona...' ),
+					),
+				),
+				get_theme_column(
+					'psicologia',
+					array(
+						get_theme_h2_heading( 'psicologia', 'Psicología' ),
+						get_theme_paragraph( 'Texto que habla sobre cómo el planeta afecta psicológicamente a una persona...' ),
+					)
+				),
+			)
+		),
+		// "KARAKAS" COLUMNS.
+		get_theme_columns(
+			array(
+				get_theme_column(
+					'karakas',
+					array(
+						get_theme_h2_heading( 'karakas', 'Karakas Principales' ),
+						get_theme_paragraph( 'Lista de los karakas del planeta...' ),
+					),
+				),
+				get_theme_column(
+					'karakas-fisicos-mentales',
+					array(
+						get_theme_h2_heading( 'karakas-fisicos-mentales', 'Karakas Físicos y Mentales' ),
+						get_theme_paragraph( 'Lista de los karakas físicos y mentales relacionados al planeta...' ),
+					)
+				),
+			)
+		),
+		// "OTROS DATOS SOBRE EL PLANETA" COLUMN.
 		get_theme_columns(
 			array(
 				get_theme_column(
@@ -375,9 +415,38 @@ function grahas_block_template() {
 						get_theme_h2_heading( 'otros', 'Otros datos sobre Planeta', 'Otros datos sobre Planeta' ),
 						get_theme_html( $otros_html ),
 					),
-					true
+					'full'
 				),
 			),
+			'mb-0'
+		),
+		// "DETALLES" COLUMN.
+		get_theme_columns(
+			array(
+				get_theme_column(
+					'detalles',
+					array(
+						get_theme_h2_heading( 'detalles', 'Detalles' ),
+						get_theme_paragraph( 'Todos los demás detalles sobre el planeta...' ),
+					),
+					'full'
+				),
+			),
+			'mb-0'
+		),
+		// "NOMBRES ALTERNATIVOS" COLUMN.
+		get_theme_columns(
+			array(
+				get_theme_column(
+					'nombres-alternativos',
+					array(
+						get_theme_h2_heading( 'nombres-alternativos', 'Nombres Alternativos', 'Nombres Alternativos', 'lg:text-center' ),
+						get_theme_list( 'Lista de nombres alternativos...' ),
+					),
+					'2/3'
+				),
+			),
+			'block'
 		),
 	);
 }
