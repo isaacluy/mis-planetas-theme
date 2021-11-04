@@ -334,6 +334,31 @@ function get_theme_columns( $content = null, $class_name = null ) {
 }
 
 /**
+ * This returns the array representation of the standard one column with white background, rounded corners and shadow (card) in mis-planetas-theme.
+ *
+ * @since 1.0.0
+ * @param content $content An array of key value pairs to generate the standard one column white card layout for mis-planetas-theme.
+ */
+function get_one_column_white_card( $content = null ) {
+	return ! $content ? null : get_theme_columns(
+		array(
+			get_theme_column(
+				$content['anchor_column'],
+				array(
+					get_theme_h2_heading(
+						$content['anchor_column'],
+						$content['heading_column'],
+					),
+					$content['block'],
+				),
+				'full'
+			),
+		),
+		'mb-0'
+	);
+}
+
+/**
  * This returns the array representation of the standard two columns with white background, rounded corners and shadow (card) in mis-planetas-theme.
  *
  * @since 1.0.0
