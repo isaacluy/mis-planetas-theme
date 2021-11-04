@@ -290,19 +290,23 @@ function get_theme_html( $html = '<div>Pega aquí tu código HTML</div>' ) {
  * This returns the array representation of a column in mis-planetas-theme.
  *
  * @since 1.0.0
- * @param anchor  $anchor A string representing the anchor(#) link for this column.
- * @param content $content An array of array representations of blocks.
- * @param full    $full A boolean flag for whether to use the full column class or the half column class.
+ * @param anchor    $anchor A string representing the anchor(#) link for this column.
+ * @param content   $content An array of array representations of blocks.
+ * @param use_class $use_class A string representing the different column layout options available for this theme [ 'full', '1/2', '2/3' ].
  */
-function get_theme_column( $anchor = null, $content = null, $full = false ) {
+function get_theme_column( $anchor = null, $content = null, $use_class = '1/2' ) {
 	// Just in case! TODO: Remove these comment lines.
 	// ORIGINAL FULL CSS: 'p-8 mb-4 bg-white rounded-xl shadow'.
-	$class_name = $full ? 'w-full h-auto p-8 mb-4 bg-white rounded-xl shadow' : 'w-full h-auto p-8 mb-4 bg-white rounded-xl space-y-4 shadow lg:w-1/2 lg:mb-0';
+	$class_name = array(
+		'full' => 'w-full h-auto p-8 mb-4 bg-white rounded-xl shadow',
+		'1/2'  => 'w-full h-auto p-8 mb-4 bg-white rounded-xl shadow space-y-4 lg:w-1/2 lg:mb-0',
+		'2/3'  => 'w-full h-auto p-8 mb-4 bg-white rounded-xl shadow space-y-4 lg:w-2/3 lg:mx-auto',
+	);
 
 	return array(
 		'core/column',
 		array(
-			'className' => $class_name,
+			'className' => $class_name[ $use_class ],
 			'anchor'    => $anchor,
 		),
 		$content,
