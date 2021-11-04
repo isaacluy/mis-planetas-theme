@@ -546,23 +546,21 @@ function rishis_block_template() {
 		'paragraph_column_right'  => 'Texto que habla sobre otros aspectos de la constelación...',
 	);
 
+	// "DETALLES" TEMPLATE CONTENT.
+	$detalles = array(
+		'anchor_column'  => 'detalles',
+		'heading_column' => 'Detalles',
+		'block'          => get_theme_paragraph( 'Todos los demás detalles sobre la constelación...' ),
+	);
+
 	return array(
 		// "FISICO Y SALUD + GUNAS, MB, VARNA + OTROS" COLUMNS.
 		get_three_columns_white_card( $fisico_salud_gunas_otros ),
 		// "DETALLES" COLUMN.
-		get_theme_columns(
-			array(
-				get_theme_column(
-					'detalles',
-					array(
-						get_theme_h2_heading( 'detalles', 'Detalles' ),
-						get_theme_paragraph( 'Todos los demás detalles sobre la constelación...' ),
-					),
-					'full'
-				),
-			),
-			'mb-0'
-		),
+		get_one_column_white_card( $detalles ),
+	);
+}
+
 	);
 }
 
