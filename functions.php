@@ -363,14 +363,44 @@ function get_two_columns_white_card( $content ) {
 	);
 }
 
-/**
- * Returns an array based blocks template for the Graha post type 'graha'
- *
- * @since 1.0.0
- */
+	/**
+	 * Returns an array based blocks template for the Graha post type 'graha'
+	 *
+	 * @since 1.0.0
+	 */
 function grahas_block_template() {
-		// Custom HTML starter template for the "Otros datos sobre ..." section.
-		$otros_html = '<div class="flex flew-row flex-wrap gap-3 justify-around lg:gap-4">
+	// "FAVORABLE VS DESFAVORABLE" TEMPLATE CONTENT.
+	$favorable_desfavorable = array(
+		'anchor_column_left'     => 'favorable',
+		'anchor_column_right'    => 'desfavorable',
+		'heading_column_left'    => 'Planeta Favorable',
+		'heading_column_right'   => 'Planeta Desfavorable',
+		'paragraph_column_left'  => 'Texto que habla sobre cuando el planeta está favorable!...',
+		'paragraph_column_right' => 'Texto que habla sobre cuando el planeta está desfavorable!...',
+	);
+
+	// "FÍSICO Y SALUD + PSICOLOGÍA" TEMPLATE CONTENT.
+	$fisico_salud_psicologia = array(
+		'anchor_column_left'     => 'fisico-salud',
+		'anchor_column_right'    => 'psicologia',
+		'heading_column_left'    => 'Físico y Salud',
+		'heading_column_right'   => 'Psicología',
+		'paragraph_column_left'  => 'Texto que habla sobre cómo el planeta afecta en la salud de una persona...',
+		'paragraph_column_right' => 'Texto que habla sobre cómo el planeta afecta psicológicamente a una persona...',
+	);
+
+	// "KARAKAS" TEMPLATE CONTENT.
+	$karakas = array(
+		'anchor_column_left'     => 'karakas',
+		'anchor_column_right'    => 'karakas-fisicos-mentales',
+		'heading_column_left'    => 'Karakas Principales',
+		'heading_column_right'   => 'Karakas Físicos y Mentales',
+		'paragraph_column_left'  => 'Lista de los karakas del planeta...',
+		'paragraph_column_right' => 'Lista de los karakas físicos y mentales relacionados al planeta...',
+	);
+
+	// Custom HTML starter template for the "Otros datos sobre ..." section.
+	$otros_html = '<div class="flex flew-row flex-wrap gap-3 justify-around lg:gap-4">
 	<div id="punto-cardinal" class="w-full h-auto p-4 bg-red-50 rounded-xl text-center lg:w-64">
 		<h3 class="text-red-900 text-lg lg:text-xl lg:mb-2">
 			<a href="#punto-cardinal">Punto Cardinal</a>
@@ -383,62 +413,11 @@ function grahas_block_template() {
 
 	return array(
 		// "FAVORABLE VS DESFAVORABLE" COLUMNS.
-		get_theme_columns(
-			array(
-				get_theme_column(
-					'favorable',
-					array(
-						get_theme_h2_heading( 'favorable', 'Planeta Favorable', 'Planeta Favorable' ),
-						get_theme_paragraph( 'Texto que habla sobre cuando el planeta está favorable!...' ),
-					),
-				),
-				get_theme_column(
-					'desfavorable',
-					array(
-						get_theme_h2_heading( 'desfavorable', 'Planeta Desfavorable', 'Planeta Desfavorable' ),
-						get_theme_paragraph( 'Texto que habla sobre cuando el planeta está desfavorable!...' ),
-					)
-				),
-			)
-		),
+		get_two_columns_white_card( $favorable_desfavorable ),
 		// "FÍSICO Y SALUD + PSICOLOGÍA" COLUMNS.
-		get_theme_columns(
-			array(
-				get_theme_column(
-					'fisico-salud',
-					array(
-						get_theme_h2_heading( 'fisico-salud', 'Físico y Salud' ),
-						get_theme_paragraph( 'Texto que habla sobre cómo el planeta afecta en la salud de una persona...' ),
-					),
-				),
-				get_theme_column(
-					'psicologia',
-					array(
-						get_theme_h2_heading( 'psicologia', 'Psicología' ),
-						get_theme_paragraph( 'Texto que habla sobre cómo el planeta afecta psicológicamente a una persona...' ),
-					)
-				),
-			)
-		),
+		get_two_columns_white_card( $fisico_salud_psicologia ),
 		// "KARAKAS" COLUMNS.
-		get_theme_columns(
-			array(
-				get_theme_column(
-					'karakas',
-					array(
-						get_theme_h2_heading( 'karakas', 'Karakas Principales' ),
-						get_theme_paragraph( 'Lista de los karakas del planeta...' ),
-					),
-				),
-				get_theme_column(
-					'karakas-fisicos-mentales',
-					array(
-						get_theme_h2_heading( 'karakas-fisicos-mentales', 'Karakas Físicos y Mentales' ),
-						get_theme_paragraph( 'Lista de los karakas físicos y mentales relacionados al planeta...' ),
-					)
-				),
-			)
-		),
+		get_two_columns_white_card( $karakas ),
 		// "OTROS DATOS SOBRE EL PLANETA" COLUMN.
 		get_theme_columns(
 			array(
@@ -484,13 +463,13 @@ function grahas_block_template() {
 	);
 }
 
-/**
- * Sets up a blocks template for post type 'post'
- *
- * @since 1.0.0
- * @param args      $args The arguments passed to register_post_type_args.
- * @param post_type $post_type A string representing the post type.
- */
+	/**
+	 * Sets up a blocks template for post type 'post'
+	 *
+	 * @since 1.0.0
+	 * @param args      $args The arguments passed to register_post_type_args.
+	 * @param post_type $post_type A string representing the post type.
+	 */
 function mis_planetas_theme_block_templates( $args, $post_type ) {
 
 	// Only add template to 'post' post type.
@@ -508,5 +487,5 @@ function mis_planetas_theme_block_templates( $args, $post_type ) {
 	return $args;
 
 }
-// Hook function into post type arguments filter. 20 = priority. 2 = number of args.
-add_filter( 'register_post_type_args', 'mis_planetas_theme_block_templates', 20, 2 );
+	// Hook function into post type arguments filter. 20 = priority. 2 = number of args.
+	add_filter( 'register_post_type_args', 'mis_planetas_theme_block_templates', 20, 2 );
