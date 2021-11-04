@@ -366,6 +366,52 @@ function get_two_columns_white_card( $content ) {
 	);
 }
 
+/**
+ * This returns the array representation of the standard two columns with white background, rounded corners and shadow (card) in mis-planetas-theme.
+ *
+ * @since 1.0.0
+ * @param content $content An array of key value pairs to generate the standard two columns white card layout for mis-planetas-theme.
+ */
+function get_three_columns_white_card( $content ) {
+	return ! $content ? null : get_theme_columns(
+		array(
+			get_theme_column(
+				$content['anchor_column_left'],
+				array(
+					get_theme_h2_heading(
+						$content['anchor_column_left'],
+						$content['heading_column_left'],
+					),
+					get_theme_paragraph( $content['paragraph_column_left'] ),
+				),
+				'1/3'
+			),
+			get_theme_column(
+				$content['anchor_column_center'],
+				array(
+					get_theme_h2_heading(
+						$content['anchor_column_center'],
+						$content['heading_column_center'],
+					),
+					get_theme_paragraph( $content['paragraph_column_center'] ),
+				),
+				'1/3'
+			),
+			get_theme_column(
+				$content['anchor_column_right'],
+				array(
+					get_theme_h2_heading(
+						$content['anchor_column_right'],
+						$content['heading_column_right'],
+					),
+					get_theme_paragraph( $content['paragraph_column_right'] ),
+				),
+				'1/3'
+			),
+		),
+	);
+}
+
 	/**
 	 * Returns an array based blocks template for the Graha post type 'graha'
 	 *
