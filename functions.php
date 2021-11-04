@@ -609,22 +609,19 @@ function bhavas_block_template() {
  * @param post_type $post_type A string representing the post type.
  */
 function mis_planetas_theme_block_templates( $args, $post_type ) {
-
-	// Only add template to 'post' post type.
-	// Change for your post type: eg 'page', 'event', 'product'.
-	if ( 'post' === $post_type ) {
-
-		// Optionally lock templates from further changes.
-		// Change to 'insert' to allow adding other blocks, but lock defined blocks.
-		$args['template_lock'] = 'all';
-
-		// Set the grahas template.
-		$args['template'] = rishis_block_template();
-	}
-
 	if ( 'graha' === $post_type ) {
 		$args['template_lock'] = 'all';
 		$args['template']      = grahas_block_template();
+	}
+
+	if ( 'rishi' === $post_type ) {
+		$args['template_lock'] = 'all';
+		$args['template']      = rishis_block_template();
+	}
+
+	if ( 'bhava' === $post_type ) {
+		$args['template_lock'] = 'all';
+		$args['template']      = bhavas_block_template();
 	}
 
 	return $args;
