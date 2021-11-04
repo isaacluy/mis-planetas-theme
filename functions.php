@@ -412,11 +412,11 @@ function get_three_columns_white_card( $content ) {
 	);
 }
 
-	/**
-	 * Returns an array based blocks template for the Graha post type 'graha'
-	 *
-	 * @since 1.0.0
-	 */
+/**
+ * Returns an array based blocks template for the Graha post type 'graha'
+ *
+ * @since 1.0.0
+ */
 function grahas_block_template() {
 	// "FAVORABLE VS DESFAVORABLE" TEMPLATE CONTENT.
 	$favorable_desfavorable = array(
@@ -512,13 +512,52 @@ function grahas_block_template() {
 	);
 }
 
-	/**
-	 * Sets up a blocks template for post type 'post'
-	 *
-	 * @since 1.0.0
-	 * @param args      $args The arguments passed to register_post_type_args.
-	 * @param post_type $post_type A string representing the post type.
-	 */
+/**
+ * Returns an array based blocks template for the Rishi post type 'rishi'
+ *
+ * @since 1.0.0
+ */
+function rishis_block_template() {
+	// "FISICO Y SALUD + GUNAS, MB, VARNA + OTROS" TEMPLATE CONTENT.
+	$fisico_salud_gunas_otros = array(
+		'anchor_column_left'      => 'fisico-salud',
+		'anchor_column_center'    => 'gunas-mb-varna',
+		'anchor_column_right'     => 'otros',
+		'heading_column_left'     => 'Físico y Salud',
+		'heading_column_center'   => 'Gunas, Maha Bhuta y Varna',
+		'heading_column_right'    => 'Otros',
+		'paragraph_column_left'   => 'Texto que habla sobre cómo la constelación afecta en la salud de una persona...',
+		'paragraph_column_center' => 'Texto que habla sobre las gunas, el maha bhuta y el varna de la constelación...',
+		'paragraph_column_right'  => 'Texto que habla sobre otros aspectos de la constelación...',
+	);
+
+	return array(
+		// "FISICO Y SALUD + GUNAS, MB, VARNA + OTROS" COLUMNS.
+		get_three_columns_white_card( $fisico_salud_gunas_otros ),
+		// "DETALLES" COLUMN.
+		get_theme_columns(
+			array(
+				get_theme_column(
+					'detalles',
+					array(
+						get_theme_h2_heading( 'detalles', 'Detalles' ),
+						get_theme_paragraph( 'Todos los demás detalles sobre la constelación...' ),
+					),
+					'full'
+				),
+			),
+			'mb-0'
+		),
+	);
+}
+
+/**
+ * Sets up a blocks template for post type 'post'
+ *
+ * @since 1.0.0
+ * @param args      $args The arguments passed to register_post_type_args.
+ * @param post_type $post_type A string representing the post type.
+ */
 function mis_planetas_theme_block_templates( $args, $post_type ) {
 
 	// Only add template to 'post' post type.
@@ -530,7 +569,12 @@ function mis_planetas_theme_block_templates( $args, $post_type ) {
 		$args['template_lock'] = 'all';
 
 		// Set the grahas template.
-		$args['template'] = grahas_block_template();
+		$args['template'] = rishis_block_template();
+	}
+
+	if ( 'graha' === $post_type ) {
+		$args['template_lock'] = 'all';
+		$args['template']      = grahas_block_template();
 	}
 
 	return $args;
