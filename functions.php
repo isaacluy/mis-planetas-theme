@@ -561,6 +561,43 @@ function rishis_block_template() {
 	);
 }
 
+/**
+ * Returns an array based blocks template for the Bhava post type 'bhava'
+ *
+ * @since 1.0.0
+ */
+function bhavas_block_template() {
+	// "FAVORABLE VS POCO FAVORABLE" TEMPLATE CONTENT.
+	$favorable_desfavorable = array(
+		'anchor_column_left'     => 'favorable',
+		'anchor_column_right'    => 'desfavorable',
+		'heading_column_left'    => 'Casa Favorable',
+		'heading_column_right'   => 'Casa Poco Favorable',
+		'paragraph_column_left'  => 'Texto que habla sobre cuando la casa está favorable...',
+		'paragraph_column_right' => 'Texto que habla sobre cuando la casa está poco favorable...',
+	);
+
+	// "INDICADORES SECUNDARIOS" TEMPLATE CONTENT.
+	$indicadores_secundarios = array(
+		'anchor_column'  => 'indicadores-secundarios',
+		'heading_column' => 'Indicadores Secundarios',
+		'block'          => get_theme_paragraph( 'Indicadores secundarios de la casa...' ),
+	);
+
+	// "DETALLES" TEMPLATE CONTENT.
+	$detalles = array(
+		'anchor_column'  => 'detalles',
+		'heading_column' => 'Detalles',
+		'block'          => get_theme_paragraph( 'Todos los demás detalles sobre la casa...' ),
+	);
+
+	return array(
+		// "FAVORABLE VS POCO FAVORABLE" COLUMNS.
+		get_two_columns_white_card( $favorable_desfavorable ),
+		// "INDICADORES SECUNDARIOS" COLUMN.
+		get_one_column_white_card( $indicadores_secundarios ),
+		// "DETALLES" COLUMN.
+		get_one_column_white_card( $detalles ),
 	);
 }
 
