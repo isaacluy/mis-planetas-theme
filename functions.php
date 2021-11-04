@@ -295,12 +295,15 @@ function get_theme_html( $html = '<div>Pega aquí tu código HTML</div>' ) {
  * @param use_class $use_class A string representing the different column layout options available for this theme [ 'full', '1/2', '2/3' ].
  */
 function get_theme_column( $anchor = null, $content = null, $use_class = '1/2' ) {
+	$class_base = 'w-full h-auto p-8 mb-4 bg-white rounded-xl shadow';
+
 	// Just in case! TODO: Remove these comment lines.
 	// ORIGINAL FULL CSS: 'p-8 mb-4 bg-white rounded-xl shadow'.
 	$class_name = array(
-		'full' => 'w-full h-auto p-8 mb-4 bg-white rounded-xl shadow',
-		'1/2'  => 'w-full h-auto p-8 mb-4 bg-white rounded-xl shadow space-y-4 lg:w-1/2 lg:mb-0',
-		'2/3'  => 'w-full h-auto p-8 mb-4 bg-white rounded-xl shadow space-y-4 lg:w-2/3 lg:mx-auto',
+		'full' => $class_base,
+		'1/2'  => $class_base . ' space-y-4 lg:w-1/2 lg:mb-0',
+		'1/3'  => $class_base . ' space-y-4 lg:w-1/3 lg:mb-0',
+		'2/3'  => $class_base . ' space-y-4 lg:w-2/3 lg:mx-auto',
 	);
 
 	return array(
