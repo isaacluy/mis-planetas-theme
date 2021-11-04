@@ -424,8 +424,8 @@ function grahas_block_template() {
 		'anchor_column_right'    => 'desfavorable',
 		'heading_column_left'    => 'Planeta Favorable',
 		'heading_column_right'   => 'Planeta Desfavorable',
-		'paragraph_column_left'  => 'Texto que habla sobre cuando el planeta está favorable!...',
-		'paragraph_column_right' => 'Texto que habla sobre cuando el planeta está desfavorable!...',
+		'paragraph_column_left'  => 'Texto que habla sobre cuando el planeta está favorable...',
+		'paragraph_column_right' => 'Texto que habla sobre cuando el planeta está desfavorable...',
 	);
 
 	// "FÍSICO Y SALUD + PSICOLOGÍA" TEMPLATE CONTENT.
