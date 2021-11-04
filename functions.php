@@ -317,13 +317,14 @@ function get_theme_column( $anchor = null, $content = null, $use_class = '1/2' )
  * This returns the array representation of columns in mis-planetas-theme.
  *
  * @since 1.0.0
- * @param content $content An array of array representations of blocks.
+ * @param content    $content An array of array representations of blocks.
+ * @param class_name $class_name A string of custom classes to be applied to the column (optional).
  */
-function get_theme_columns( $content = null ) {
+function get_theme_columns( $content = null, $class_name = null ) {
 	return array(
 		'core/columns',
 		array(
-			'className' => 'mb-4 lg:flex lg:p-0 lg:space-x-4',
+			'className' => $class_name ? $class_name : 'mb-4 lg:flex lg:p-0 lg:space-x-4',
 		),
 		$content,
 	);
