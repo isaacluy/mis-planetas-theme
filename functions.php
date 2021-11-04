@@ -222,14 +222,18 @@ function get_comments_html( $comment, $args, $depth ) {
  * @param anchor      $anchor A string representing the anchor(#) link for this heading.
  * @param content     $content A string that will be displayed as a heading.
  * @param placeholder $placeholder A string that will be displayed as a placeholder hint.
+ * @param class_name  $class_name A string of custom CSS classes to be added to the base heading classes.
+ *
+ * There's a level attribute that can be a number between 1-6 to define h1, h2, h3, etc... May be useful in the future.
  */
-function get_theme_h2_heading( $anchor = '', $content = '', $placeholder = 'Aquí va el título H2' ) {
-	// There's a level attribute that can be a number between 1-6 to define h1, h2, h3, etc... May be useful in the future.
+function get_theme_h2_heading( $anchor = '', $content = '', $placeholder = 'Aquí va el título H2', $class_name = null ) {
+	$base_class = 'mb-4 text-red-900 text-xl lg:text-left lg:text-2xl';
+
 	return array(
 		'core/heading',
 		array(
 			'anchor'      => $anchor,
-			'className'   => 'mb-4 text-red-900 text-xl lg:text-left lg:text-2xl',
+			'className'   => ! $class_name ? $base_class : $base_class . ' ' . $class_name,
 			'content'     => $content,
 			'placeholder' => $placeholder,
 		),
