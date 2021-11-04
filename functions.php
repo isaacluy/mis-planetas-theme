@@ -485,6 +485,20 @@ function grahas_block_template() {
 	</div>
 </div>';
 
+	// "OTROS DATOS SOBRE EL PLANETA" TEMPLATE CONTENT.
+	$otros = array(
+		'anchor_column'  => 'otros',
+		'heading_column' => 'Otros datos sobre Planeta',
+		'block'          => get_theme_html( $otros_html ),
+	);
+
+	// "DETALLES" TEMPLATE CONTENT.
+	$detalles = array(
+		'anchor_column'  => 'detalles',
+		'heading_column' => 'Detalles',
+		'block'          => get_theme_paragraph( 'Todos los demás detalles sobre el planeta...' ),
+	);
+
 	return array(
 		// "FAVORABLE VS DESFAVORABLE" COLUMNS.
 		get_two_columns_white_card( $favorable_desfavorable ),
@@ -493,33 +507,9 @@ function grahas_block_template() {
 		// "KARAKAS" COLUMNS.
 		get_two_columns_white_card( $karakas ),
 		// "OTROS DATOS SOBRE EL PLANETA" COLUMN.
-		get_theme_columns(
-			array(
-				get_theme_column(
-					'otros',
-					array(
-						get_theme_h2_heading( 'otros', 'Otros datos sobre Planeta', 'Otros datos sobre Planeta' ),
-						get_theme_html( $otros_html ),
-					),
-					'full'
-				),
-			),
-			'mb-0'
-		),
+		get_one_column_white_card( $otros ),
 		// "DETALLES" COLUMN.
-		get_theme_columns(
-			array(
-				get_theme_column(
-					'detalles',
-					array(
-						get_theme_h2_heading( 'detalles', 'Detalles' ),
-						get_theme_paragraph( 'Todos los demás detalles sobre el planeta...' ),
-					),
-					'full'
-				),
-			),
-			'mb-0'
-		),
+		get_one_column_white_card( $detalles ),
 		// "NOMBRES ALTERNATIVOS" COLUMN.
 		get_theme_columns(
 			array(
