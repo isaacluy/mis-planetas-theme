@@ -256,6 +256,22 @@ function get_theme_paragraph( $placeholder = 'Aquí va el contenido' ) {
 }
 
 /**
+ * This returns the array representation of a list in mis-planetas-theme.
+ *
+ * @since 1.0.0
+ * @param placeholder $placeholder A string that will be displayed as a placeholder hint.
+ */
+function get_theme_list( $placeholder = 'Aquí va el contenido' ) {
+	return array(
+		'core/list',
+		array(
+			'className'   => 'text-lg italic text-center text-gray-400 space-y-2 lg:text-xl',
+			'placeholder' => $placeholder,
+		),
+	);
+}
+
+/**
  * This returns the array representation of a custom HTML in mis-planetas-theme.
  *
  * @since 1.0.0
