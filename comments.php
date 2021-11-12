@@ -77,7 +77,7 @@ $comment_count = get_comments_number();
 	<?php
 	comment_form(
 		array(
-			'class_submit'       => 'bg-red-900',
+			'class_submit'       => 'p-4 bg-red-900 rounded-full text-white cursor-pointer',
 			'comment_field'      => '<textarea id="comment" class="w-full my-4" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>',
 			'label_submit'       => esc_html__( 'Enviar comentario', 'misplanetastheme' ),
 			'logged_in_as'       => null,
