@@ -53,9 +53,9 @@
 					?>
 					<div class="pt-6 lg:p-8 text-center lg:text-left space-y-4">
 					<figcaption>
-						<div class="text-cyan-600 font-medium">
+						<div class="text-cyan-600 font-medium text-xl">
 						<?php the_title(); ?>
-						<span class="text-sm font-normal italic"> (<?php echo esc_attr( $current_post_nombre_comun ); ?>) </span>
+						<span class="text-sm font-normal italic"> ( <?php echo esc_attr( $current_post_nombre_comun ); ?> ) </span>
 						</div>
 					</figcaption>
 					<blockquote>
@@ -84,9 +84,9 @@
 					?>
 					<div class="w-full pt-6 lg:p-8 text-center lg:text-left space-y-4">
 						<figcaption>
-							<div class="text-cyan-600 font-medium">
+							<div class="text-cyan-600 font-medium text-xl">
 						<?php the_title(); ?>
-								<span class="text-sm font-normal italic"> (<?php echo esc_attr( $current_post_nombre_comun ); ?>) </span>
+								<span class="text-sm font-normal italic"> ( <?php echo esc_attr( $current_post_nombre_comun ); ?> ) </span>
 							</div>
 						</figcaption>
 						<blockquote>

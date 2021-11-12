@@ -71,7 +71,7 @@
 					mt-2
 					block
 					font-medium
-					text-center text-cyan-600
+					text-center text-cyan-600 text-xl
 					truncate
 					pointer-events-none
 					"
