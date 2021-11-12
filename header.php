@@ -28,4 +28,4 @@
 	?>
 
 <!-- MAIN -->
-	<main id="root" class="container mx-auto p-8 lg:w-11/12">
+	<main id="root" class="container mx-auto px-8 py-12 lg:w-11/12">
