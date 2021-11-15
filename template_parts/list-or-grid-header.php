@@ -16,6 +16,8 @@
 		lg:text-left lg:ml-4 lg:text-3xl
 	"
 >
-	<?php echo esc_attr( $args['nombre_sanscrito'] ); ?>
-	<span class="text-sm italic">(<?php echo esc_attr( $args['nombre_comun'] ); ?>)</span>
+	<a href="<?php echo '#' . esc_attr( $args['id'] ); ?>">
+		<?php echo esc_attr( $args['nombre_sanscrito'] ); ?>
+		<span class="text-sm italic">(<?php echo esc_attr( $args['nombre_comun'] ); ?>)</span>
+	</a>
 </h1>
