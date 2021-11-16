@@ -52,16 +52,16 @@
 				</a>
 				</div>
 
-				<!-- <div class="px-5 py-2">
+				<div class="px-5 py-2">
 				<a
-					href="relaciones.html"
+					href="<?php echo esc_attr( get_home_url() ) . '/relaciones'; ?>"
 					class="text-base text-red-700 hover:text-red-900"
 				>
 					Relaciones
 				</a>
 				</div>
 
-				<div class="px-5 py-2">
+				<!-- <div class="px-5 py-2">
 				<a
 					href="analisis.html"
 					class="text-base text-red-700 hover:text-red-900"
