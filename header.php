@@ -17,6 +17,7 @@
 	<?php
 		wp_head();
 	?>
+	<link rel="icon" type="image/png" sizes="16x16"  href="<?php echo esc_attr( get_template_directory_uri() ) . '/assets/favicon-16x16.png'; ?>">
 	</head>
 	<body class="bg-gray-50">
 	<?php
