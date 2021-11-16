@@ -6,9 +6,10 @@
  * @since 1.0.0
  */
 
-$grahas_text = 'Grahas';
-$rishis_text = 'Rishis';
-$bhavas_text = 'Bhavas';
+$grahas_text     = 'Grahas';
+$rishis_text     = 'Rishis';
+$bhavas_text     = 'Bhavas';
+$relaciones_text = 'Relaciones';
 ?>
 		<!-- HEADER -->
 		<header class="bg-red-700">
@@ -57,15 +58,15 @@ $bhavas_text = 'Bhavas';
 							<?php echo esc_attr( $bhavas_text ); ?>
 						</a>
 
-						<!-- <a
-							href="<?php echo esc_attr( get_home_url() ); ?>"
+						<a
+							href="<?php echo esc_attr( get_home_url() ) . '/relaciones'; ?>"
 							class="text-base font-medium text-white hover:text-red-50"
-							key="Relaciones"
+							key="<?php echo esc_attr( $relaciones_text ); ?>"
 						>
-							Relaciones
+							<?php echo esc_attr( $relaciones_text ); ?>
 						</a>
 
-						<a
+						<!-- <a
 							href="<?php echo esc_attr( get_home_url() ); ?>"
 							class="text-base font-medium text-white hover:text-red-50"
 							key="Analisis"
@@ -137,15 +138,15 @@ $bhavas_text = 'Bhavas';
 						<?php echo esc_attr( $bhavas_text ); ?>
 					</a>
 
-					<!-- <a
-						href="<?php echo esc_attr( get_home_url() ); ?>"
+					<a
+						href="<?php echo esc_attr( get_home_url() ) . '/relaciones'; ?>"
 						class="text-base font-medium text-white hover:text-red-50"
-						key="Relaciones"
+						key="<?php echo esc_attr( $relaciones_text ); ?>"
 					>
-						Relaciones
+						<?php echo esc_attr( $relaciones_text ); ?>
 					</a>
 
-					<a
+					<!-- <a
 						href="<?php echo esc_attr( get_home_url() ); ?>"
 						class="text-base font-medium text-white hover:text-red-50"
 						key="Analisis"
