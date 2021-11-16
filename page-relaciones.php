@@ -14,8 +14,15 @@
 	);
 	?>
 
-<h1> This is where the RELACIONES PAGE content goes!</p>
-
+<h1 class="mb-6 text-red-900 text-2xl text-center lg:text-left lg:text-3xl">
+		Relaciones entre las tres variables
+</h1>
 <?php
+if ( have_posts() ) {
+	while ( have_posts() ) {
+		the_post();
+		the_content();
+	}
+}
 	// Basically includes footer.php.
 	get_footer();
