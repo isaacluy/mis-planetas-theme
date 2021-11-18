@@ -1,6 +1,6 @@
 /*
 Theme Name: Mis Planetas Theme
-Theme URI: https://mis-planetas.herokuapp.com/
+Theme URI: https://misplanetas.com/
 Author: Isaac Luy
 Author URI: http://dev.isaacluy.com/
 Description: Theme for misplanetas.com website
@@ -16,3 +16,8 @@ Text Domain: mis-planetas
 These Theme was created following this YouTube Tutorial:
 https://www.youtube.com/watch?v=-h7gOJbIpmo
 */
+
+figcaption {
+  color:gray;
+  font-size: 0.2em;
+}
