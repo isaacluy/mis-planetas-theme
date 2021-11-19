@@ -17,7 +17,8 @@ These Theme was created following this YouTube Tutorial:
 https://www.youtube.com/watch?v=-h7gOJbIpmo
 */
 
-figcaption {
+.wp-block-group figcaption,
+.wp-block-columns figcaption {
   color:gray;
   font-size: 0.2em;
 }
