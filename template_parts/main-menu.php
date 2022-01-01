@@ -29,7 +29,7 @@ $relaciones_text = 'Relaciones';
 						</span>
 						<img
 							class="h-10 w-auto"
-							src="https://storage.googleapis.com/mis-planetas-assets/clev-logo.png"
+							src="http://misplanetas.com/wp-content/uploads/2022/01/clev-logo.png"
 							alt="Centro Latinoamericano de Estudios Védicos"
 						/>
 					</a>
@@ -108,7 +108,7 @@ $relaciones_text = 'Relaciones';
 						</span>
 						<img
 							class="h-10 w-auto"
-							src="https://storage.googleapis.com/mis-planetas-assets/clev-logo.png"
+							src="http://misplanetas.com/wp-content/uploads/2022/01/clev-logo.png"
 							alt="Centro Latinoamericano de Estudios Védicos"
 						/>
 					</a>

@@ -11,7 +11,7 @@
 		<span class="sr-only">Centro Latinoamericano de Estudios Védicos</span>
 		<img
 			class="h-10 w-auto my-12 mx-auto"
-			src="https://www.iniciadossky.com/assets/design2/icon-9fd5dfd8774cebef18ffb89ac5ca5553338227555753edb4670f561e6d7b2a38.png"
+			src="http://misplanetas.com/wp-content/uploads/2022/01/clev-logo.png"
 			alt="Centro Latinoamericano de Estudios Védicos"
 		/>
 		</a>
